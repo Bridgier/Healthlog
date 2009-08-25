@@ -1,6 +1,0 @@
-<h1>User#view</h1>
-<p>This page will display one person.</p>
-<p>
-<%= @user.name %><br />
-</p>
-Isn't that awesome?
