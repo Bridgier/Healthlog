@@ -1,8 +1,0 @@
-class CyclingController < ApplicationController
-  def view
-  end
-
-  def save
-  end
-
-end
