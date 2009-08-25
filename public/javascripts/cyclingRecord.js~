@@ -1,0 +1,12 @@
+
+
+function toggleOdometer(odomId)
+{
+    $(odomId + '-odom').toggle();
+    
+    if($(odomId + '-odom').visible)
+	$(odomId + '-dist').disabled = true;
+    else
+	$(odomId + '-dist').disabled = false;
+
+}

@@ -1,0 +1,39 @@
+<div class="boxlist">
+<div class="activitybox">
+Activities
+</div>
+
+<div class="activitybox">
+Cycling
+</div>
+<div class="activitybox">
+Cardio
+</div>
+<div class="activitybox">
+Fromage
+</div>
+</div>
+
+<div id="userbox">
+  This is going to be an awesome box that displays your overall fatitude & slobbiliness.  You'll love it.
+
+  <ul>
+  <% @user.entries.each do |e| %>
+
+    <li><%= e.entry_date %></li>
+
+  <% end %>
+  </ul>
+</div>
+
+<div id="loglist">
+<ul>
+<% @logentries.each do |e| %>
+  <li><%= e %></li>
+<% end %>
+</ul>
+</div>
+
+
+
+

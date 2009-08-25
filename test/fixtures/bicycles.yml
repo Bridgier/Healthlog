@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  model: MyString
+  current_odometer: 1
+  base_odometer: 1
+
+two:
+  model: MyString
+  current_odometer: 1
+  base_odometer: 1

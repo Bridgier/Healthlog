@@ -1,0 +1,73 @@
+
+
+<div class="boxlist">
+<div class="activitybox">
+Activities
+</div>
+
+<div class="activitybox">
+Cycling
+</div>
+<div class="activitybox">
+Cardio
+</div>
+<div class="activitybox">
+Fromage
+</div>
+</div>
+
+<div id="userbox">
+
+  <% form_for :entry do |form| %>
+  <fieldset>
+   <legend id="date_legend"><%= link_to '<', :controller => 'entry', :action => 'view', :id => @entry.entry_date.yesterday.to_s(:db) %> 
+   <%= @entry.entry_date %> 
+   <% if Date.today != @entry.entry_date then %>
+    <%= link_to '>', :controller => 'entry', :action => 'view', :id => @entry.entry_date.tomorrow.to_s(:db) %> 
+   <% end %>
+   </legend> 
+    
+    <%= error_messages_for "entry" %>
+
+    <div class="form_row">
+    <label for="screen_name">Weight:</label>
+    <%= form.text_field :weight %>
+    <br />
+    </div>
+
+    <%= observe_field :entry_weight, :url => { :action => :entry_attribute, 
+                                               :entry_date => @entry.entry_date, 
+                                               :id=>'weight' },
+      :update => :entry_weight,
+      :with => 'value'
+      %>
+    
+    <div class="form_row">
+    <label for="notes">Notes:</label>
+    <%= form.text_area :notes, :size => '40x3'  %>
+    </div>
+    <br/>
+
+    <%= observe_field :entry_notes, :url => { :action => :entry_attribute, :entry_date => @entry.entry_date, :id=>'notes' },
+      :update => :entry_notes,
+      :with => 'value'
+      %>
+
+    <%= form.hidden_field :entry_date %>
+
+    <%= submit_tag "Update", "class" => "submit" %>
+  </fieldset>
+<div id="cycling_records">
+  <%= link_to_remote  'Cycling', :update => 'cycling_records', :url => {:action => 'view', :controller => 'cycling'}, :position => 'after' %>
+</div>  
+<% end %>
+
+</div>
+
+
+
+</div>
+
+
+
+

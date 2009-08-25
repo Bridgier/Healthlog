@@ -1,0 +1,62 @@
+<div id="loglist">
+
+<% @logentries.keys.sort.reverse.each do |y| %>
+   <div>
+     <span onClick="$('<%=y%>').toggle();"><%= y %></span>
+     <div style="display:none" id="<%=y%>">
+<%   @logentries[y].keys.sort.reverse.each do |m| %>
+  <% boxId = y+'-'+m+'box' %>
+  <div class="calbox">
+    <span  onClick="$('<%=boxId%>').toggle();"><%= m[2,m.length-1] %></span><br/>
+    <div style="display:none" id="<%=boxId%>" class="calbox">
+     <%@logentries[y][m].keys.sort.reverse.each do |d| %>
+
+	<%= link_to_unless_current d, :action => "view",
+	                              :controller => "entries",
+	                              :id => d %>
+
+        <% if @logentries[y][m][d] == '1' then %> * <% end %>
+
+     <% end %>
+    </div>
+   </div>
+<% end %>
+   </div>
+   </div>
+<%   end %>
+
+</div>
+
+<div class="boxlist">
+<div class="activitybox">
+Activities
+</div>
+
+<div class="activitybox">
+Cycling
+</div>
+<div class="activitybox">
+Cardio
+</div>
+<div class="activitybox">
+Fromage
+</div>
+</div>
+
+<div id="userbox">
+  This is going to be an awesome box that displays your overall fatitude & slobbiliness.  You'll love it.
+
+  <ul>
+  <% @user.entries.each do |e| %>
+
+    <li><%= e.entry_date %></li>
+
+  <% end %>
+  </ul>
+</div>
+
+</div>
+
+
+
+

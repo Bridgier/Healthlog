@@ -1,0 +1,38 @@
+<h2>Login</h2>
+<% form_for :user do |form| %>
+  <fieldset>
+    <legend>Enter Your Details</legend>
+    
+    <%= error_messages_for "user" %>
+
+    <div class="form_row">
+    <label for="screen_name">Screen name:</label>
+    <%= form.text_field :screen_name %>
+    <br />
+    </div>
+
+    <div class="form_row">
+    <label for="email">Email:</label>
+    <%= form.text_field :email %>
+    <br/>
+    </div>
+
+    <div class="form_row">
+    <label for="password">Password:</label>
+    <%= form.password_field :password %>
+    <br/>
+    </div>
+
+    <div class="form_row">
+    <label for="remember_me">Remember Me:</label>
+    <%= form.check_box :remember_me %>
+    <br/>
+    </div>
+
+    <%= submit_tag "Login!", "class" => "submit" %>
+  </fieldset>
+<% end %>
+
+<p>
+  Not a member? <%= link_to "Register now!", :action => "new" %>
+</p>

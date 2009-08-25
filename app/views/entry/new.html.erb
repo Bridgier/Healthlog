@@ -1,0 +1,28 @@
+<% form_for :entry do |form| %>
+  <fieldset>
+    <legend>New Log Entry</legend>
+    
+    <%= error_messages_for "user" %>
+
+
+    <div class="form_row">
+    <label for="weight">Weight:</label>
+    <%= form.text_field :weight %>
+    </div>
+    <br/>
+
+    <div class="form_row">
+    <label for="entry_date">Date:</label>
+    <%= date_select("entry", :entry_date) %>
+    </div>
+    <br/>
+
+    <div class="form_row">
+    <label for="notes">Notes:</label>
+    <%= form.text_area :notes, :size => '40x3'  %>
+    </div>
+    <br/>
+
+    <%= submit_tag "Save", "class" => "submit" %>
+  </fieldset>
+<% end %>

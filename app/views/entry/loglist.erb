@@ -1,0 +1,28 @@
+<div id="loglist">
+
+<% @logentries.keys.sort.reverse.each do |y| %>
+   <div>
+     <span onClick="$('<%=y%>').toggle();"><%= y %></span>
+     <div style="display:none" id="<%=y%>">
+<%   @logentries[y].keys.sort.reverse.each do |m| %>
+  <% boxId = y+'-'+m+'box' %>
+  <div class="calbox">
+    <span  onClick="$('<%=boxId%>').toggle();"><%= m[2,m.length-1] %></span><br/>
+    <div style="display:none" id="<%=boxId%>" class="calbox">
+     <%@logentries[y][m].keys.sort.reverse.each do |d| %>
+
+	<%= link_to_unless_current d, :action => "view",
+	                              :controller => "entry",
+	                              :id => d %>
+
+        <% if @logentries[y][m][d] == '1' then %> * <% end %>
+
+     <% end %>
+    </div>
+   </div>
+<% end %>
+   </div>
+   </div>
+<%   end %>
+
+</div>
